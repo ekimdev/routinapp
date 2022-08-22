@@ -9,7 +9,13 @@
         <ul>
             <hr>
             <li><p>Task ID: {{task.id}}</p></li>
-            <li><p>Title: {{task.title}}</p></li>
+            <li>
+                <p>
+                    <a href="{% url 'single_task' task.id %}">
+                        Title: {{task.title}}
+                    </a>
+                </p>
+            </li>
 
             {% if task.description%}
             <li><p>Description: {{task.description}}</p></li>
@@ -19,6 +25,7 @@
             <hr>
         </ul>
     {% endfor %}
+        <a href="{% url 'create_task' %}">Create a New Task</a>
 </main>
 
 {% endblock content %}
