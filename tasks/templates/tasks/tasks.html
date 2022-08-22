@@ -5,6 +5,20 @@
 <!-- Main Section -->
 <main>
     <h1>Tasks Template</h1>
+    {% for task in tasks %}
+        <ul>
+            <hr>
+            <li><p>Task ID: {{task.id}}</p></li>
+            <li><p>Title: {{task.title}}</p></li>
+
+            {% if task.description%}
+            <li><p>Description: {{task.description}}</p></li>
+            {% endif %}
+
+            <li><p>Created: {{task.created}}</p></li>
+            <hr>
+        </ul>
+    {% endfor %}
 </main>
 
 {% endblock content %}
