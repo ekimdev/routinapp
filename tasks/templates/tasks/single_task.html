@@ -7,6 +7,7 @@
     <div style="border: 2px solid black; text-align:center;">
         <h2>{{task.title}}</h2>
         <h3>{{task.description}}</h3>
+        <h3>{{task.owner.name}}</h3>
     </div>
     <a href="{% url 'tasks' %}">Back Tasks</a>
     <a href="{% url 'update_task' task.id %}">Update Task</a>

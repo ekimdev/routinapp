@@ -2,9 +2,12 @@ import uuid
 
 from django.db import models
 
+from users.models import Profile
+
 
 class Task(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=500, blank=True)
     tags = models.ManyToManyField("Tag", blank=True)
