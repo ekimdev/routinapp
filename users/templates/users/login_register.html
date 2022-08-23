@@ -1,0 +1,57 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+{% if page == 'register' %}
+<div>
+        <h3>Register an Account</h3>
+
+		<form action="{% url 'register' %}" method="POST" class="form auth__form">
+			{% csrf_token %}
+
+			{% for field in form %}
+
+			<div>
+				<label>{{field.label}}</label>
+				{{field}}
+			</div>
+
+			{% endfor %}
+
+			<div>
+				<input type="submit" value="Sign  In" />
+			</div>
+		</form>
+		<div>
+			<p>Already have an Account?</p>
+			<a href="{% url 'login' %}">Log In</a>
+		</div>
+</div>
+
+{% else %}
+
+<div>
+        <h3>Account Login</h3>
+
+		<form action="" method="POST">
+			{% csrf_token %}
+
+			<!-- Input:Username -->
+            {% for field in form %}
+			<div>
+				<label>{{field.label}}</label>
+				{{field}}
+			</div>
+            {% endfor %}
+			<div>
+				<input type="submit" value="Log In" />
+			</div>
+		</form>
+		<div>
+			<p>Don’t have an Account?</p>
+			<a href="{% url 'register' %}">Sign Up</a>
+		</div>
+</div>
+
+{% endif %}
+{% endblock content %}
