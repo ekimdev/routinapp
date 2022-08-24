@@ -1,4 +1,15 @@
-{% extend "main.html" %}
+{% extends "main.html" %}
+
 {% block content %}
-<h1>aaaaaaaaa</h1>
+
+<!-- Main Section -->
+<main>
+    <div style="text-align:center;">
+        <h2>{{profile.name}}</h2>
+        <h3>{{profile.username}}</h3>
+        <h3>{{profile.email}}</h3>
+    </div>
+    <a href="{% url 'tasks' %}">Return Home</a>
+</main>
+
 {% endblock content %}
