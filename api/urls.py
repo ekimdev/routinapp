@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path("", views.get_routes),
-    path("tasks/", views.get_tasks),
+    path("tasks/", views.get_tasks, name="tasks_api"),
     ]
